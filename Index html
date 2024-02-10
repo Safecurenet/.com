@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safecure</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #2980b9, #6dd5fa, #ffffff);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .btn-primary {
+            background-color: #007bff;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+        }
+        .btn-success {
+            background-color: #28a745;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Safecure</h1>
+    <div id="loginForm">
+        <h2>Login with Email</h2>
+        <form>
+            <div class="form-group">
+                <input type="email" class="form-control" id="emailInput" placeholder="Enter email">
+            </div>
+            <button type="button" class="btn btn-primary" onclick="login()">Login</button>
+        </form>
+    </div>
+    <div id="homePage" style="display: none;">
+        <h2>Welcome to Safecure</h2>
+        <div>
+            <h3>Your Crypto Holdings</h3>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Cryptocurrency</th>
+                        <th>Balance (BTC)</th>
+                        <th>Balance (USD)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Bitcoin</td>
+                        <td>5 BTC</td>
+                        <td>$XXXXX</td>
+                    </tr>
+                    <tr>
+                        <td>Ethereum</td>
+                        <td>X ETH</td>
+                        <td>$XXXXX</td>
+                    </tr>
+                    <tr>
+                        <td>Litecoin</td>
+                        <td>X LTC</td>
+                        <td>$XXXXX</td>
+                    </tr>
+                    <!-- Add more rows for other cryptocurrencies -->
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <h3>Actions</h3>
+            <div>
+                <button type="button" class="btn btn-primary" onclick="mine()">Mine Cryptocurrency</button>
+                <button type="button" class="btn btn-secondary" onclick="withdraw()">Withdraw Cryptocurrency</button>
+                <button type="button" class="btn btn-success" onclick="sell()">Sell Cryptocurrency</button>
+                <button type="button" class="btn btn-danger" onclick="logout()">Logout</button>
+                <!-- Add more actions as needed -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var hasDeposited = false;
+
+    function login() {
+        var email = document.getElementById("emailInput").value;
+        if (email) {
+            document.getElementById("loginForm").style.display = "none";
+            document.getElementById("homePage").style.display = "block";
+        } else {
+            alert("Please enter your email.");
+        }
+    }
+
+    function mine() {
+        if (hasDeposited) {
+            // Proceed with mining to
+            // Redirect the user to the mining page
+            // Replace "https://freemining.club/?referral=2827852" with the actual URL of your mining page
+            window.location.href = "https://freemining.club/?referral=2827852";
+        } else {
+            alert("You must deposit before mining.");
+        }
+    }
+
+    function withdraw() {
+        // Prompt the user to enter their password for withdrawal
+        var password = prompt("Enter your password for withdrawal:");
+        if (password) {
+            // Proceed with withdrawal
+            var walletAddress = prompt("Enter the wallet address for withdrawal:");
+            if (walletAddress) {
+                alert("Withdrawal initiated to address: " + walletAddress);
+            }
+        }
+    }
+
+    function sell() {
+        // Add your selling functionality here
+        alert("Selling initiated...");
+    }
+
+    function logout() {
+        // Redirect to login page
+        document.getElementById("loginForm").style.display = "block";
+        document.getElementById("homePage").style.display = "none";
+        // Clear email input
+        document.getElementById("emailInput").value = "";
+    }
+</script>
+
+</body>
+</html>
